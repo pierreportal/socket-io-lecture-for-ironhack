@@ -1,15 +1,13 @@
-import React from 'react'
 import socketIOClient from "socket.io-client";
 
-let endpoint = "http://localhost:5555"; // socket io connection
-
-let socket = socketIOClient(endpoint);
+const endpoint = "http://localhost:5555"; // socket io connection
+const socket = socketIOClient(endpoint);
 
 export const SystemFeedback = (feedback, clear) => {
     setTimeout(() => {
         clear('')
     }, 2000)
-    return <p>{feedback}</p>
+    return feedback
 }
 
 export const socketIn = props => {

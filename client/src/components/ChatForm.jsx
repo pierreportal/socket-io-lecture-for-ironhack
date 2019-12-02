@@ -15,10 +15,6 @@ function ChatForm(props) {
         props.sendMessage(message);
         setMessage('');
     }
-    // const sendHand = e => {
-    //     //console.log()
-    //     props.sendMessage(e.target.innerHTML);
-    // }
 
     return (
         <>
@@ -26,7 +22,6 @@ function ChatForm(props) {
             <form onSubmit={handleSubmit} className='chat-form'>
                 <img src={props.user.picture} className='user-head' style={{ 'boxShadow': 'none' }} alt={props.user.username} />
                 <input type="text" name='message' onChange={handleChange} value={message} placeholder='Type your message here...' />
-                {/* <button onClick={sendHand} className='hand-msg'>🖖</button> */}
             </form>
         </>
     );

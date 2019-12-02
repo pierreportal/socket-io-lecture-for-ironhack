@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import ChatForm from './ChatForm';
 import ChatArea from './ChatArea';
 import axios from 'axios';
@@ -11,15 +11,11 @@ function Chat(props) {
     const [actionFeedback, setActionFeedback] = useState("");
     const [systemFeedback, setSystemFeedback] = useState([]);
 
-    // const loggedUser = systemFeedback && systemFeedback.map(x => x.username)
-    // props.getUsers(loggedUser || null)
-
     const getFeed = () => {
         axios.get('/chat/feed').then(response => {
             setFeed(response.data)
         })
     }
-
     socketIn({ setActionFeedback, setSystemFeedback, systemFeedback, getFeed });
 
     const isTyping = typing => {
@@ -35,7 +31,7 @@ function Chat(props) {
     }
 
     useEffect(() => {
-        socketOut({ type: 'system', message: props.user })
+        socketOut({ type: 'system', message: `${props.user.firstName} is connected !` })
         getFeed()
     }, [])
 
@@ -45,8 +41,7 @@ function Chat(props) {
 
             <ChatArea feed={feed} user={props.user} />
             <div className='feedbacks'>
-                {/* {SystemFeedback(systemFeedback, setSystemFeedback)} */}
-                {/* {loggedUser} */}
+                {SystemFeedback(systemFeedback, setSystemFeedback)}
                 {actionFeedback && <p>{actionFeedback}</p>}
             </div>
             <ChatForm sendMessage={sendMessage} user={props.user} isTyping={isTyping} />

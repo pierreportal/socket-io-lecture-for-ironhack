@@ -8,14 +8,14 @@ router.post('/postmessage', (req, res) => {
         content: message,
         postedBy: user._id
     }).then(newMessage => {
-        console.log(newMessage)
+        res.json(newMessage)
     }).catch(err => console.log(err))
 })
 
 
 router.get('/feed', (req, res) => {
     Message.find().populate('postedBy').then(data => {
-        return res.json(data)
+        res.json(data)
     }).catch(err => res.json(err))
 })
 

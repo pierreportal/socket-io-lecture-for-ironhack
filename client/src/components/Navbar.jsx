@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import axios from 'axios'
-//import { Link } from 'react-router-dom'
 
-function Navbar(props) {
+function Navbar() {
 
     const handleLogout = () => {
         axios.get('/auth/logout').then(response => {
@@ -12,7 +11,7 @@ function Navbar(props) {
 
     return (
         <div className='navbar'>
-            <button style={{ 'width': '100px', 'padding': '10px' }} onClick={handleLogout}>I'm out.</button>
+            <button style={{ 'width': '60px', 'padding': '10px' }} onClick={handleLogout}>bye!</button>
         </div>
     );
 }

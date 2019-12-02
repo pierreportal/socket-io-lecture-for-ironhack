@@ -1,16 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from './Navbar';
 import Chat from './Chat';
 
 function Home(props) {
-
-    // let users = []
-
-    // const getUsers = u => {
-    //     users = u
-    // }
-
-    // const here = users && users.map(x => x.username)
 
     return (
         <div className='content'>
@@ -19,6 +11,5 @@ function Home(props) {
         </div>
     );
 }
-
 
 export default Home
