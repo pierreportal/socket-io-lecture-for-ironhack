@@ -26,5 +26,19 @@
         "lastName": "Sheng Ang",
         "password": "qwertyui",
         "picture": "https://images.unsplash.com/photo-1543246239-7ae3ded686ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2757&q=80"
+    },
+    {
+        "username": "Cssqueen",
+        "firstName": "Svenja",
+        "lastName": "Weiler",
+        "password": "qwertyui",
+        "picture": "https://media.tenor.com/images/0a1665a07d1021e6061c2fa38072f223/tenor.png"
+    },
+    {
+        "username": "andre",
+        "firstName": "Andre",
+        "lastName": "De Albuquerc",
+        "password": "qwertyui",
+        "picture": "https://images.unsplash.com/photo-1541647376583-8934aaf3448a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
     }
 ]

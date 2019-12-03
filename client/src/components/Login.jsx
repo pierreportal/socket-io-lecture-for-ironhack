@@ -1,12 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
 function Login(props) {
 
-    let [loggedIn, setLoggedIn] = useState(null)
-
-    // const attempt = props.location.attempt
+    let [loggedIn, setLoggedIn] = useState(props.user)
 
     const [username, setUsername] = useState("")
 
@@ -20,19 +18,24 @@ function Login(props) {
 
     const handleSubmit = e => {
         e.preventDefault()
+        console.log("form")
         axios.post('/auth/fastlogin', { username }).then(response => {
-
-            return redirect(response.data)
-
+            redirect(response.data)
         }).catch(err => console.log(err))
     }
 
     let btnDisplay = username ? 'visible' : 'hidden'
+    console.log(loggedIn, props.user)
 
-    return loggedIn || props.user ? <Redirect to="/" /> : (
+    const randPlaceholder = () => {
+        const dif = ['Welcome back !', "Hi:) What's your name?", "My name is ..."];
+        return dif[Math.floor(Math.random() * dif.length)]
+    }
+
+    return loggedIn ? <Redirect to="/" /> : (
         <div className='auth-container'>
             <form onSubmit={handleSubmit}>
-                <input type="text" placeholder='Your username ?' value={username} onChange={handleChange} name='username' />
+                <input type="text" placeholder={randPlaceholder()} value={username} onChange={handleChange} name='username' />
                 <button style={{ 'visibility': btnDisplay }}>I'm back!</button>
             </form>
         </div>

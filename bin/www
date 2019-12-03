@@ -60,7 +60,7 @@ io.on('connection', socket => {
 
     socket.on('message', data => {
 
-        // console.log('NEW MESSAGE:', data)
+        //console.log('NEW MESSAGE:', data)
 
         if (data.type === 'message') {
 
@@ -70,7 +70,5 @@ io.on('connection', socket => {
         }
 
         else socket.broadcast.emit('message', data)
-
-        //socket.emit('message', data)
     });
 });
